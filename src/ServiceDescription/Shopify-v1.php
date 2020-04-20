@@ -3026,6 +3026,7 @@ return [
             'uri'              => 'admin/api/{version}/orders/{id}/cancel.json',
             'responseModel'    => 'GenericModel',
             'summary'          => 'Cancel a given order',
+            'data'             => ['response_only_root_key' => 'order'],
             'parameters'       => [
                 'version' => [
                     'description' => 'API version',

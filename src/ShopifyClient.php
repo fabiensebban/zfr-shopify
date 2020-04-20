@@ -682,6 +682,10 @@ class ShopifyClient
     {
         $operation = $this->guzzleClient->getDescription()->getOperation($command->getName());
         $rootKey   = $operation->getData('root_key');
+        if ($rootKey == null)
+        {
+          $rootKey   = $operation->getData('response_only_root_key');
+        }
         $result    = (null === $rootKey) ? $bodyPayload : $bodyPayload[$rootKey];
 
         if (substr($command->getName(), -5) === 'Count') {
